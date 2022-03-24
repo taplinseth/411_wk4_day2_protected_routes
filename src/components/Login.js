@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router'
+import Cookies from 'js-cookie';
+
 import {
   TextField,
   Button,
@@ -20,8 +22,8 @@ class App extends Component {
 
   login = (e) => {
     e.preventDefault()
-    // set cookie here
-    // set loggedIn = true and max-age = 60*1000 (one minute)
+    var inOneMinute = new Date(new Date().getTime() + 1 * 60 * 1000);
+    Cookies.set('foo', 'bar', {expires: inOneMinute})
 
     window.location.replace("/")
   }
